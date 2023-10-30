@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS credential(
     PRIMARY KEY(id)
 );
 
-CREATE TABLE IF NOT EXISTS "user" (
+CREATE TABLE IF NOT EXISTS users (
     id bigint NOT NULL GENERATED ALWAYS AS IDENTITY,
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
@@ -16,4 +16,4 @@ CREATE TABLE IF NOT EXISTS "user" (
     FOREIGN KEY (credentialId) REFERENCES credential (id)
 );
 
-ALTER TABLE credential ADD CONSTRAINT fk_user FOREIGN KEY (userId) REFERENCES "user" (id);
+ALTER TABLE credential ADD CONSTRAINT fk_user FOREIGN KEY (userId) REFERENCES users (id);

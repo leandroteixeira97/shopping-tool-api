@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS shopping (
     marketId bigint NOT NULL,
     userId bigint NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (userId) REFERENCES "user" (id)
+    FOREIGN KEY (userId) REFERENCES users (id)
 );
 
 CREATE TABLE IF NOT EXISTS market (
