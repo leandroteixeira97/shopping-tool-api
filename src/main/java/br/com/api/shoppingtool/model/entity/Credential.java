@@ -5,7 +5,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-@Entity
+@Entity(name = "Credential")
+@Table(name = "credential")
 public class Credential {
 
     @Id
