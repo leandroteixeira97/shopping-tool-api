@@ -5,7 +5,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-@Entity
+@Entity(name = "Credential")
+@Table(name = "credential")
 public class Credential {
 
     @Id
@@ -15,8 +16,6 @@ public class Credential {
     private String username;
     @NotBlank
     private String password;
-    @NotNull
-    private Boolean expired;
 
     public Credential() {}
 
@@ -24,13 +23,11 @@ public class Credential {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.expired = expired;
     }
 
     public Credential(RegisterUserDTO registerUserDTO) {
         this.username = registerUserDTO.username();
         this.password = registerUserDTO.password();
-        this.expired = false;
     }
 
     public Integer getId() {
@@ -55,13 +52,5 @@ public class Credential {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public Boolean getExpired() {
-        return expired;
-    }
-
-    public void setExpired(Boolean expired) {
-        this.expired = expired;
     }
 }

@@ -23,4 +23,7 @@ public class CredentialService {
         return credentialRepository.findByUsername(username);
     }
 
+    public Optional<Credential> findById(Integer credentialId) {
+        return credentialRepository.findById(credentialId);
+    }
 }

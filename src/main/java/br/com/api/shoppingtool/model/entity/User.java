@@ -19,6 +19,8 @@ public class User {
     @NotNull
     @Column(name = "credential_id")
     private Integer credentialId;
+    @NotNull
+    private Boolean expired;
 
     public User() {}
 
@@ -32,6 +34,7 @@ public class User {
     public User(RegisterUserDTO registerUserDTO) {
         this.name = registerUserDTO.name();
         this.email = registerUserDTO.email();
+        this.expired = false;
     }
 
     public Integer getId() {
@@ -64,5 +67,13 @@ public class User {
 
     public void setCredentialId(Integer credentialId) {
         this.credentialId = credentialId;
+    }
+
+    public Boolean getExpired() {
+        return expired;
+    }
+
+    public void setExpired(Boolean expired) {
+        this.expired = expired;
     }
 }
