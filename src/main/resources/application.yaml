@@ -3,3 +3,8 @@ spring:
     url: jdbc:postgresql://localhost:5432/shopping-tool-api
     username: postgres
     password: postgres
+
+api:
+  security:
+    token:
+      secret: ${JWT_SECRET:1597532648}
