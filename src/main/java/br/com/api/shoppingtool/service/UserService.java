@@ -7,6 +7,7 @@ import br.com.api.shoppingtool.model.record.RegisterUserDTO;
 import br.com.api.shoppingtool.model.entity.User;
 import br.com.api.shoppingtool.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import javax.swing.text.html.Option;
@@ -27,15 +28,15 @@ public class UserService {
 
     public User registerUser(RegisterUserDTO registerUserDTO) throws RuntimeException {
 
-        Optional<Credential> optionalCredential = credentialService.findCredentialByUsername(registerUserDTO.username());
+        UserDetails optionalCredential = credentialService.findCredentialByUsername(registerUserDTO.username());
 
         Credential credential;
 
-        if (optionalCredential.isEmpty()) {
+        if (optionalCredential == null) {
             credential = new Credential(registerUserDTO);
             credentialService.registerCredential(credential);
         } else {
-            credential = optionalCredential.get();
+            credential = (Credential) optionalCredential;
         }
 
         Optional<User> optionalUser = userRepository.findByCredentialId(credential.getId());
