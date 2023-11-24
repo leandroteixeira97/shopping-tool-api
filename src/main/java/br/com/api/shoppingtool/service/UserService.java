@@ -8,6 +8,7 @@ import br.com.api.shoppingtool.model.entity.User;
 import br.com.api.shoppingtool.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.swing.text.html.Option;
@@ -23,12 +24,16 @@ public class UserService {
     @Autowired
     private CredentialService credentialService;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     public UserService() {
     }
 
     public User registerUser(RegisterUserDTO registerUserDTO) throws RuntimeException {
+        encodePassword(registerUserDTO);
 
-        UserDetails optionalCredential = credentialService.findCredentialByUsername(registerUserDTO.username());
+        UserDetails optionalCredential = credentialService.findCredentialByUsername(registerUserDTO.getUsername());
 
         Credential credential;
 
@@ -76,5 +81,9 @@ public class UserService {
         User user = this.findUserById(id);
 
         user.setExpired(true);
+    }
+
+    private void encodePassword(RegisterUserDTO registerUserDTO) {
+        registerUserDTO.setPassword(passwordEncoder.encode(registerUserDTO.getPassword()));
     }
 }
