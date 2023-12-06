@@ -30,8 +30,8 @@ public class Credential implements UserDetails {
     }
 
     public Credential(RegisterUserDTO registerUserDTO) {
-        this.username = registerUserDTO.username();
-        this.password = registerUserDTO.password();
+        this.username = registerUserDTO.getUsername();
+        this.password = registerUserDTO.getPassword();
     }
 
     public Integer getId() {

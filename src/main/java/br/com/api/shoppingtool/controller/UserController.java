@@ -2,6 +2,7 @@ package br.com.api.shoppingtool.controller;
 
 import br.com.api.shoppingtool.model.entity.User;
 import br.com.api.shoppingtool.model.record.RegisterUserDTO;
+import br.com.api.shoppingtool.model.record.UpdateUserDTO;
 import br.com.api.shoppingtool.model.record.UserDTO;
 import br.com.api.shoppingtool.service.UserService;
 import jakarta.transaction.Transactional;

@@ -32,8 +32,8 @@ public class User {
     }
 
     public User(RegisterUserDTO registerUserDTO) {
-        this.name = registerUserDTO.name();
-        this.email = registerUserDTO.email();
+        this.name = registerUserDTO.getName();
+        this.email = registerUserDTO.getEmail();
         this.expired = false;
     }
 
