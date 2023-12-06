@@ -13,6 +13,21 @@ public class Product {
     @Column(name = "sub_category_id")
     private Integer subCategoryId;
 
+    public Product() {
+
+    }
+
+    public Product(String name, Integer subCategoryId) {
+        this.name = name;
+        this.subCategoryId = subCategoryId;
+    }
+
+    public Product(Integer id, String name, Integer subCategoryId) {
+        this.id = id;
+        this.name = name;
+        this.subCategoryId = subCategoryId;
+    }
+
     public Integer getId() {
         return id;
     }

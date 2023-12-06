@@ -13,6 +13,30 @@ public class SubCategory {
     @Column(name = "category_id")
     private Integer categoryId;
 
+    public SubCategory() {
+
+    }
+
+    public SubCategory(String name) {
+        this.name = name;
+    }
+
+    public SubCategory(Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public SubCategory(String name, Integer categoryId) {
+        this.name = name;
+        this.categoryId = categoryId;
+    }
+
+    public SubCategory(Integer id, String name, Integer categoryId) {
+        this.id = id;
+        this.name = name;
+        this.categoryId = categoryId;
+    }
+
     public Integer getId() {
         return id;
     }

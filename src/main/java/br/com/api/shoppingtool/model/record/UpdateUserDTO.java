@@ -1,4 +1,4 @@
-package br.com.api.shoppingtool.controller;
+package br.com.api.shoppingtool.model.record;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

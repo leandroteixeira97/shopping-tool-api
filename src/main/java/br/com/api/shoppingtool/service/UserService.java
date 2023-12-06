@@ -1,6 +1,6 @@
 package br.com.api.shoppingtool.service;
 
-import br.com.api.shoppingtool.controller.UpdateUserDTO;
+import br.com.api.shoppingtool.model.record.UpdateUserDTO;
 import br.com.api.shoppingtool.model.entity.Credential;
 import br.com.api.shoppingtool.model.exception.ResourceNotFoundException;
 import br.com.api.shoppingtool.model.record.RegisterUserDTO;
@@ -11,7 +11,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
